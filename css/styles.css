@@ -11,7 +11,8 @@
     --portfolio-border-color: #EEEEEE;
     --our-team-main-color: #F5F4FA;
     --hero-shadow:rgba(47, 48, 58, 0.4);
-    --social-networks:rgba(255, 255, 255, 0.1);
+    --social-networks: #AFB1B8;
+    --icons-background: rgba(255, 255, 255, 0.1);
 }
 
 /* ЗАГАЛЬНІ ВЛАСТИВОСТІ БОКСІВ */
@@ -102,6 +103,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
 .header-contacts:hover,
 .header-contacts:focus {
     color: var(--accent-color);
+    fill: #2196F3;
 }
 
 /* Контакти в хедері */
@@ -128,24 +130,24 @@ h1, h2, h3, h4, h5, h6, p, ul {
     text-decoration: none;
 }
 
-.header-contacts.mail::before {
-    display: inline-block;
-    content: "";
-    background-size: contain;
-    background-color: var(--main-background-color);
+/*  ІКОНКИ КОНТАКТІВ ХЕДЕРА*/
+.icon-mail {
     width: 16px;
     height: 12px;
-    background-image: url(../images/mail.svg);
+    fill: var(--primary-text-color);
+    margin-right: 10PX;
 }
-.header-contacts.number::before {
-    display: inline-block;
-    content: "";
-    background-size: contain;
-    background-color: var(--main-background-color);
+.icon-number {
     width: 10px;
     height: 16px;
-    background-image: url(../images/number.svg);
-    background-position: center;
+    fill: var(--primary-text-color);
+    margin-right: 10PX;
+}
+.header-contacts:hover .icon-mail,
+.header-contacts:focus .icon-mail,
+.header-contacts:hover .icon-number,
+.header-contacts:focus .icon-number {
+    fill: #2196F3;
 }
 
 .main-contacts .item + .item {
@@ -392,40 +394,48 @@ img {
 }
 
 /* Додаю іконки до соцмереж */
-.networks {
-    text-decoration: none;
-}
 .social-networks {
     display: flex;
     list-style: none;
     margin: 0px 32px 30px 32px;
 }
-.social-networks .item {
-    display: inline-block;
-    height: 44px;
-    width: 44px;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 50%;
-    background-size: 20px;
-    margin: 0px 10px 0px 0px;
+.instagram, .twitter, .facebook, .likedin {
+margin-right: 10px;
 }
-.social-networks .item:last-child {
+.instagram:last-child,
+.twitter:last-child,
+.facebook:last-child,
+.likedin:last-child {
     margin-right: 0px;
 }
-.social-networks .item.instagram {
-    background-image: url(../images/instagram.svg);
-}
-.social-networks .item.twitter {
-    background-image: url(../images/twitter.svg);
-}
-.social-networks .item.facebook {
-    background-image: url(../images/facebook.svg);
-}
-.social-networks .item.linkedin {
-    background-image: url(../images/linkedin.svg);
+.networks {
+    display: flex;
+    height: 44px;
+    width: 44px;
+    background-color: var(--main-background-color);
+    border-radius: 50%;
+    justify-content: center;
+    padding: 12px;
 }
 
+.icon {
+    fill: var(--social-networks);
+}
+.networks:hover,
+.networks:focus {
+    display: flex;
+    height: 44px;
+    width: 44px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    justify-content: center;
+    padding: 12px;
+}
+.networks:hover .icon,
+.networks:focus .icon {
+    fill: var(--main-background-color);
+  
+}
 
 /* Розмічаємо постійних клієнтів */
 .section.regular-clients {
@@ -436,15 +446,28 @@ img {
     display: flexbox;
 }
 .clients-list .item {
-    display: inline-block;
     padding: 16px 32px;
     border: 1px solid #AFB1B8;
     border-radius: 4px;
     align-items: center;
     list-style: none;
-    margin-right: 30px;
     width: 170px;
     height: 92px;
+}
+.clients-list .item:hover, .clients-list .item:hover {
+    padding: 16px 32px;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    align-items: center;
+    list-style: none;
+    width: 170px;
+    height: 92px;
+}
+.client {
+    fill: var(--social-networks);
+}
+.clients-list .item:hover .client, .clients-list .item:focus .client {
+    fill: var(--accent-color);
 }
 .clients-list .item:last-child {
     margin-right: auto;
@@ -598,9 +621,19 @@ footer {
 .join .social-networks {
 margin: 0px;
 }
-.join .item {
-    background-color: var(--social-networks);
+.networks.footer .icon {
+    fill: var(--main-background-color);
 }
-.join .item:hover, .join .item:focus {
+.networks.footer {
+    background-color: var(--icons-background);
+}
+.networks.footer:hover,
+.networks.footer:focus {
+    display: flex;
+    height: 44px;
+    width: 44px;
     background-color: var(--accent-color);
+    border-radius: 50%;
+    justify-content: center;
+    padding: 12px;
 }
